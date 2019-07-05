@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Service Hub</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<h2>Providers</h2>
+	{% for provider in providers %}
+	<div>
+		<h4><a href="">{{ provider.Sp_name }}</a></h4>
+	</div>
+	{% endfor %}
+</body>
+</html>
+

@@ -1,0 +1,385 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Mirrored from 115.160.244.10:8084/themeforest/easyliving/service-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Mar 2019 08:27:26 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content=""> 
+    
+    <!-- Title -->
+    <title>ServiceHub</title> 
+    
+    <!-- favicon icon -->
+    <link rel="icon" href="{% static '/servicehub/images/favicon.ico' %}">
+    
+    <!-- Icons -->
+    <link href="{% static '/servicehub/css/font-awesome.min.css' %}" rel="stylesheet"><!-- font-awesome.min css -->
+    <link href="{% static '/servicehub/css/custom-icons.css' %}" rel="stylesheet"><!-- custom-icons css -->
+    <!-- CSS Stylesheet -->
+    <link href="{% static '/servicehub/css/bootstrap.css' %}" rel="stylesheet"><!-- bootstrap.min css -->
+    <link href="{% static '/servicehub/css/slick.css' %}" rel="stylesheet"><!-- slick css -->
+    <link href="{% static '/servicehub/css/slick-theme.css' %}" rel="stylesheet"><!-- slick-theme css -->
+    <link href="{% static '/servicehub/css/bootstrap-select.css' %}" rel="stylesheet"><!-- bootstrap selectbox css -->
+    <link href="{% static '/servicehub/css/bootstrap-datetimepicker.css' %}" rel="stylesheet"><!-- datetimepicker css --> 
+    <link href="{% static '/servicehub/css/style.css' %}" rel="stylesheet"><!-- style css --> 
+    <link href="{% static '/servicehub/css/css3.css' %}" rel="stylesheet"><!-- css3 css -->
+    <link href="{% static '/servicehub/css/theme/theme-1.css' %}" rel="stylesheet" id="switch_style"><!-- style css --> 
+    <script type="text/javascript">
+    function isValidDate(dateStr) {
+ 
+ // Checks for the following valid date formats:
+ // MM/DD/YYYY
+ // Also separates date into month, day, and year variables
+ var datePat = /^(\d{2,2})(\/)(\d{2,2})\2(\d{4}|\d{4})$/;
+ 
+ var matchArray = dateStr.match(datePat); // is the format ok?
+ if (matchArray == null) {
+  alert("Date must be in MM/DD/YYYY format")
+  return false;
+ }
+ 
+ month = matchArray[1]; // parse date into variables
+ day = matchArray[3];
+ year = matchArray[4];
+ if (month < 1 || month > 12) { // check month range
+  alert("Month must be between 1 and 12");
+  return false;
+ }
+ if (day < 1 || day > 31) {
+  alert("Day must be between 1 and 31");
+  return false;
+ }
+ if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+  alert("Month "+month+" doesn't have 31 days!")
+  return false;
+ }
+ if (month == 2) { // check for february 29th
+  var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+  if (day>29 || (day==29 && !isleap)) {
+   alert("February " + year + " doesn't have " + day + " days!");
+   return false;
+    }
+ }
+ return true;  // date is valid
+} </script>
+</head>  
+
+
+<body>
+    <div id="wrapper" class="innerPage">
+        <!-- Style Box Start -->
+        
+        <!-- Header Start -->
+        <body>
+    <div id="wrapper" class="innerPage">
+        
+        <!-- Header Start -->
+
+    <div id="wrapper" class="homePage">
+        
+        <!-- Header Start -->
+        <header id="header">
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-lg-4 col-md-3 col-sm-2">
+                        <div class="navbar-header">
+                          <span class="username username-hide-on-mobile">{{request.session.Cust_name|title}} </span>  
+                           <div class="col-6 col-xl-2">
+<h1 style="font-size: 50px"><a  class="text-black mb-0" style="color: white">Service<span class="text-primary">Hub</span> </a></h1>
+</div>
+                        </div> 
+                    </div>
+                    <div class="col-lg-8 col-md-9 col-sm-10">
+                        <div class="right-header clearfix">
+                            <nav class="navigation">
+                                <div class="close-menu"><i class="fa fa-close" aria-hidden="true"></i></div>
+                                <div class="navbar-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li ><a href="{% url 'index' %}">Home</a></li>
+                                        <li><a href="{% url 'view_profile' %}">Profile</a></li>
+                                        <li class="active"><a href="{% url 'servicelist' %}">Book Service</a></li>
+                                        <li><a href="{% url 'feedbacks' %}">Feedback</a></li>
+                                        <li><a href="contact-us.html">Contact Us</a></li> 
+                                        <li><a href="contact-us.html">About Us</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="register-link">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>        <!-- Register Section -->
+
+        <!-- Register Section -->
+        <section class="register-user">
+        	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><em class="fa fa-close" aria-hidden="true"></em></span></button>
+                       	<div class="row-height">
+                            <div class="col-sm-height left-part">
+                                <div class="service-intro-slider">
+                                    <div>
+                                        <div class="icon-box"><i class="icon icon-verifiedprofessionals" aria-hidden="true"></i></div>
+                                        <div class="name">Verified Professionals</div>
+                                        <p>Lorem Ipsum is simply dummy text the printing and typesetting industry.</p>
+                                    </div>
+                                    <div>
+                                        <div class="icon-box"><i class="icon icon-insuredwork" aria-hidden="true"></i></div>
+                                        <div class="name">Insured Work</div>
+                                        <p>Lorem Ipsum is simply dummy text the printing and typesetting industry.</p>
+                                    </div>
+                                    <div>
+                                        <div class="icon-box"><i class="icon icon-satisfactionguaranteed" aria-hidden="true"></i></div>
+                                        <div class="name">Satisfaction Guaranteed</div>
+                                        <p>Lorem Ipsum is simply dummy text the printing and typesetting industry.</p>
+                                    </div>
+                                    <div>
+                                        <div class="icon-box"><i class="icon icon-easypayment" aria-hidden="true"></i></div>
+                                        <div class="name">Easy Payment</div>
+                                        <p>Lorem Ipsum is simply dummy text the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-height">
+                                <div class="right-part">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
+                                        <li role="presentation"><a href="#signup" aria-controls="signup" role="tab" data-toggle="tab">Sign up</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="login">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Enter your Mobile or Email"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" placeholder="Password"/>
+                                                    <p class="help-block text-right"><a href="#">Trouble logging in?</a></p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <a href="#" class="btn btn-info btn-block">Secure Login</a>
+                                                    <p class="help-block text-center">By Logging in you agree to our <a href="#">T&C </a> and <a href="#">Privacy Policy</a>. </p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="signup">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Mobile Number"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" placeholder="Email ID"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" placeholder="Password"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="label_check" for="checkbox-01"><INPUT name="sample-checkbox-01" id="checkbox-01" value="1" type="checkbox" checked="">I hereby certify that I am 18 years of age.</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <a href="#" class="btn btn-info btn-block">Create Account</a>
+                                                    <p class="help-block text-center">By Signing Up you agree to our <a href="#">T&C </a> and <a href="#">Privacy Policy</a>. </p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       	</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Banner Section -->
+        <section id="banner" class="banner-slider">
+			<div class="banner-img-slider">
+				<div>
+					<div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/service-banner.jpg" alt="" class="hide" /></div>
+				</div>
+			</div>
+			<div class="blue-overlay"></div>
+			<div class="banner-text-wrapper">
+                <div class="container">
+                    <div class="banner-text">
+                        <div class="row">
+                        	
+                            	
+                                    	<div class="blue-overlay"></div>
+            <div class="banner-text-wrapper">
+                <h1>Service Hub</h1>
+                                  </div>
+                </div>
+            </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+        <!-- Content Start -->
+        <div id="content">
+        	<!-- Service Detail -->
+            <section class="service-detail-wrapper">
+            	<div class="container">
+                	<div class="top-desc text-center">
+                        <h2>Select Schedule</h2>
+                    </div>
+                    <div class="row">
+                    	<div class="col-md-9 col-md-offset-3">
+                        	<form method="POST" action="{% url 'booking1' %}">
+                                 {% csrf_token %}
+                                 <!--Serivces-->
+                                 <input type="hidden" value="{{service_id}}" name="service_id">
+                                <div class="row">
+
+                                    <!--Sub-Serivces-->
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+
+                                            <select class="selectpicker" name="subcat">
+                                                <option>Select Sub Service</option>
+                                                {% if all_subcat %}
+                                                 {% for sc in all_subcat %}
+                                                <option value="{{sc.sub_id.id}}">{{sc.sub_id.SubService_name}}</option>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                
+                            	
+                                	<div class="col-sm-8">
+<div class="form-group">
+    <div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+    	<input class="form-control" size="16" type="text" value="" readonly name="appdate">
+    	<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+    </div>
+</div>
+                                    </div>
+                                    <div class="col-sm-8">
+<div class="form-group">
+    <div class="input-group date form_time" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+    	<input class="form-control" size="16" type="text" value="" readonly name="apptime">
+    	<span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
+    </div>
+</div>
+                                    
+                            
+                                <div class="form-group text-center">
+                                	<div class="group-btn">
+                                    	<a href="{% url 'index' %}" class="btn btn-info">Back</a>
+                                    	<input type="submit" class="btn btn-info" value="Next" >
+                                    </div>
+                                </div>
+                                <div class="scedule-detail">
+                                	
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        	
+        <!-- Footer Start -->
+        <footer id="footer">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <h3>Quick Links</h3>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <ul class="links">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about-us.html">About</a></li>
+                                        
+                                        <li><a href="contact-us.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div> 
+                        <div class="col-md-4 col-sm-6">
+                            <h3>Our Services</h3>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">Cleaning</a></li>
+                                        <li><a href="#">Pest Control</a></li>
+                                        <li><a href="#">Electrical</a></li>
+                                        <li><a href="#">Plumbing</a></li>
+                                       
+                                    </ul>
+                                </div>
+                                <div class="col-xs-6">
+                                    <ul class="links">
+                                        
+                                         <li><a href="#">Appliance Services</a></li>
+                                        <li><a href="#">Vehicle Care</a></li>
+                                        <li><a href="#">Painting</a></li>
+
+                                        <li><a href="#">Carpentry</a></li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h3>Follow us</h3>
+                            
+                            
+                            <ul class="list-inline social-links">
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </footer> 
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="{% static '/servicehub/js/jquery-1.12.4.min.js' %}"></script><!-- jquery-1.12.4.min js-->
+
+    <script src="{% static '/servicehub/js/bootstrap.min.js' %}"></script><!-- bootstrap.min js-->
+    <script src="{% static '/servicehub/js/bootstrap-datetimepicker.min.js' %}"></script> <!-- Bootstrap datetimepicker js-->
+    <script src="{% static '/servicehub/js/slick.min.js' %}"></script><!-- slick js-->
+    <script src="{% static '/servicehub/js/bootstrap-select.min.js' %}"></script><!-- Bootstrap selectbox js-->
+    <script src="{% static '/servicehub/js/waypoints.min.js' %}"></script>
+	<script src="{% static '/servicehub/js/jquery.counterup.min.js' %}"></script><!-- counter js -->
+
+    <script src="{% static '/servicehub/js/custom.js' %}"></script><!-- custom js-->
+    <script type="text/javascript">
+
+
+	</script>
+
+</body>
+
+<!-- Mirrored from 115.160.244.10:8084/themeforest/easyliving/service-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Mar 2019 08:27:26 GMT -->
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Service Hub</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<h2>Services</h2>
+	{% for service in services %}
+	<div>
+		<h4><a href="">{{ service.Service_name }}</a></h4>
+	</div>
+	{% endfor %}
+</body>
+</html>

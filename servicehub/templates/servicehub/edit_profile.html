@@ -1,0 +1,482 @@
+{% load static %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<link href="{% static '/servicehub/min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{% static '/servicehub/style.js' %}"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link href="{% static '/servicehub/login.css' %}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content=""> 
+    <title>ServiceHub</title> 
+    <link rel="icon" href="{% static 'servicehub/images/favicon.ico' %}">
+    <link href="{% static 'servicehub/css/theme/theme-1.css' %}" rel="stylesheet" id="switch_style">
+    <link href="{% static 'servicehub/css/css3.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/bootstrap-select.css' %}" rel="stylesheet">
+       <link href="{% static 'servicehub/css/slick-theme.css' %}" rel="stylesheet">
+       <link href="{% static 'servicehub/css/slick.css' %}" rel="stylesheet">
+       <link href="{% static 'servicehub/css/custom-icons.css' %}" rel="stylesheet">
+       <link href="{% static 'servicehub/css/font-awesome.min.css' %}" rel="stylesheet">
+
+       <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+    crossorigin="anonymous"></script>-->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+
+    <script src="{% static 'servicehub/js/jquery.validate.js' %}"></script><!-- jquery-1.12.4.min js-->
+<link href="{% static '/servicehub/main.css' %}" rel="stylesheet">
+<!--<style type="text/css">
+span{
+    color: red;
+}
+</style>
+<script type="text/javascript">
+    function validation(){
+        var user =document.getElementById('uname').value;
+        var add =document.getElementById('uadd').value;
+        var mob =document.getElementById('umob').value;
+        var mail =document.getElementById('uemail').value;
+        var pass =document.getElementById('upass').value;
+        var cpass =document.getElementById('ucpass').value;
+
+        if (user == ""){
+            document.getElementById('fname').innerHTML="** PLEASE FILL THE USERNAME";
+            return false;
+            }
+        if((user.length < 2) || (user.length > 20)){
+              document.getElementById('fname').innerHTML="**USERNAME length must be between 2 and 20";
+            return false;   
+            }
+        if(!isNaN(user)){
+              document.getElementById('fname').innerHTML="**USERNAME is contains only characters";
+            return false;   
+            }
+         if (user){
+            document.getElementById('fname').innerHTML="";
+            
+            }
+        if (add == ""){
+            document.getElementById('fadd').innerHTML="** PLEASE FILL THE ADDRESS";
+            return false;
+        }
+        if (add){
+            document.getElementById('fadd').innerHTML="";
+            
+            }
+        if (mob == ""){
+            document.getElementById('fmob').innerHTML="** PLEASE FILL THE MOBILE NUMBER";
+            return false;
+        }
+        if (isNaN(mob)){
+            document.getElementById('fmob').innerHTML="** MUST FILL DIGIT ONLY";
+            return false;
+        }
+        if (mob.length!=10){
+            document.getElementById('fmob').innerHTML="** NUMBER MUST HAVE 10 DIGITS ";
+            return false;
+        }
+        if (mob){
+            document.getElementById('fmob').innerHTML="";
+            
+            }
+        if (mail == ""){
+            document.getElementById('femail').innerHTML="** PLEASE FILL THE E-MAIL";
+            return false;
+        }
+        if (mail.indexOf('@') <= 0){
+            document.getElementById('femail').innerHTML="** @ INVALID POSITION";
+            return false;
+        }
+        if ((mail.charAt(mail.length-4) != '.') && (mail.charAt(mail.length-3) != '.')) {
+            document.getElementById('femail').innerHTML="** '.'INVALID POSITION";
+            return false;
+        }
+        if (mail){
+            document.getElementById('femail').innerHTML="";
+            
+            }
+       
+        if (pass == ""){
+            document.getElementById('fpass').innerHTML="** PLEASE FILL THE PASSWORD";
+            return false;
+        }
+        if ((pass.length <= 6) || (pass.length > 12)){
+            document.getElementById('fpass').innerHTML="** PASSWORD MUST BE BETWEEN 6 AND 12";
+            return false;
+        }
+        if (pass){
+            document.getElementById('fpass').innerHTML="";
+            
+            }
+        if (pass!=cpass){
+            document.getElementById('fcpass').innerHTML="** PASSWORD are  not match";
+            return false;
+        }
+        if (cpass == ""){
+            document.getElementById('fcpass').innerHTML="** PLEASE FILL THE C-PASS";
+            return false;
+        }
+        if (cpass){
+            document.getElementById('fcpass').innerHTML="";
+            
+            }
+
+
+    }
+</script>-->
+<script type="text/javascript">
+ $(document).ready(function() {   
+  $('#first_form').submit(function(e) {
+    e.preventDefault();
+    var first_name = $('#name').val();
+    var address =$('#uadd').val();
+    var phone =$('#umob').val();
+    
+    var email = $('#email').val();
+    var password = $('#upass').val();
+    var cpassword = $('#cpass').val();
+    var city = $('#ucity option:selected' ).val();
+    
+
+
+ 
+    $(".error").remove();
+ 
+    if (first_name.length < 1) {
+      $('#name').after('<span class="error">This field is required</span>');
+    }
+     else if((first_name.length < 2) || (first_name.length > 20)){$('#name').after('<span class="error">**USERNAME length must be between 2 and 20</span>');
+    }
+     else if(!isNaN(first_name)){$('#name').after('<span class="error">**not a num</span>');
+    }
+    if (address.length < 1) {
+      $('#uadd').after('<span class="error">This field is required</span>');
+    }
+    if (phone.length < 1) {
+      $('#umob').after('<span class="error">This field is required</span>');
+    }
+    else if(isNaN(phone)){$('#umob').after('<span class="error"> MUST FILL DIGIT ONLY</span>');}
+    else if(phone.length!=10){$('#umob').after('<span class="error">NUMBER MUST HAVE 10 DIGITS </span>');}
+
+    if (email.length < 1) {
+      $('#email').after('<span class="error">This field is required</span>');
+    } else {
+      var regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      var validEmail = regEx.test(email);
+      if (!validEmail) {
+        $('#email').after('<span class="error">Enter a valid email</span>');
+      }
+    }
+    if (password.length < 1) {
+      $('#upass').after('<span class="error">This field is required</span>');
+    }
+    
+    else if((password.length < 6) || (password.length > 12)){$('#upass').after('<span class="error">**password length must be between 6 to 12/span>');}
+
+     if (cpassword.length < 1) {
+      $('#cpass').after('<span class="error">This field is required</span>');
+    }
+    else if(password!=cpassword) {
+      $('#cpass').after('<span class="error">Password not match</span>');
+  }
+  if (city == 'select') {
+                    //If the "Please Select" option is selected display error.
+    $('#ucity').alert('<span class="error">select not match</span>');
+                    
+                }
+
+    
+  });
+ 
+});
+</script>
+
+<style type="text/css"> 
+form label {
+  display: inline-block;
+  width: 100px;
+}
+ 
+form div {
+  margin-bottom: 10px;
+}
+ 
+.error {
+  color: red;
+  margin-left: 5px;
+}
+ 
+label.error {
+  display: inline;
+}
+</style>
+</head>
+
+<!-- Banner Section --> 
+
+        <section id="banner" class="banner-slider" class="section-block" style="height: 800;">
+            <div class="banner-img-slider">
+                <div>
+                    <div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/banner-img.png' %}" alt="" class="hide" /></div>
+                </div>
+                <div>
+                    <div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/comming-soonBanner.png' %}" alt="" class="hide" /></div>
+                </div>
+                 
+                 <div>
+                    <div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/team-banner.jpg' %}" alt="" class="hide" /></div>
+                </div>
+            </div>
+            <div class="blue-overlay"></div>
+            <div class="banner-text-wrapper">
+            </div>
+        </section>
+                 <div class="container register"style="background:-webkit-linear-gradient(left, #6c757d,#6c757d)" >
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.flaticon.com/icons/svg/62/62420.svg" alt="" />
+            <h3>Service Hub</h3>
+            <p>All type of services we are providing</p>
+            <form method="GET" action="{% url 'login' %}"><input type="submit" name="" value="Login" /></form> <br />
+     </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                        aria-selected="true">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                        aria-selected="false">Service</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <form class="tab-pane fade show active" id="first_form"  role="tabpanel" method="POST" action="{% url 'registration' %}" >
+                     
+                    {% csrf_token %}
+                    {% if message %}
+                    <p class="text-danger text-center">{{message}}</p>
+                    {% endif %}
+                    {% if all_user %}
+                    {% if all_cust %}
+                    <h3 class="register-heading">User Rgistration</h3>
+                    <div class="row register-form">
+                        <input type="hidden" name="role" value="user"/>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="First Name *"
+                                    value="{{all_cust.Cust_name}}" id='name' />
+                                    
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="form-control" name="address" placeholder="Your Address *" value="{{all_cust.Cust_address}}"id='uadd' /></textarea>
+                                 <td><span id="fadd"></span></td>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="contno" placeholder="Contact Number *" value="{{all_cust.Cust_contact}}" id='umob' />
+                                
+                            </div>
+                             <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email *" value="{{all_user.email}}" id='email'/>
+                                
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password *"
+                                    value="" id='upass' />
+                                    
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password *"
+                                    value=""id='cpass' />
+                                    
+                            </div>
+                        
+                    
+                        </div>
+                        <div class="col-md-6">
+                            <div class ="form-group">
+                            <select class="form-control" name="city" placeholder="Your city" id='ucity'>
+                                <option class="form-control">Select your City</option>
+                                <option>Ahmedabad</option>
+                                <option>Vadodara</option>
+                                <option>Anand</option>
+                            </select>
+                            
+                            </div>
+                            <div class ="form-group">
+                            <select class="form-control" name="state" placeholder="Your State" id='ustate'>
+                                <option class="form-control">Select your State</option>
+                                <option>Gujarat</option>
+                                
+                            </select> 
+                            </div>
+                            <div class ="form-group">
+                            <select class="form-control" name="country" placeholder="Your Country" id='ucountry'>
+                                <option class="form-control">Select your Country</option>
+                                <option>India</option>
+
+                               
+                            </select> <td>
+                                
+
+                            </div>
+                            <div class="">
+                                <input type="radio"  name="gender" value="{{all_cust.Cust_gender}}" id="gender" />Male<br>
+                                <input type="radio"  name="gender" value="{{all_cust.Cust_gender}}" id="gender"/>Female<br>
+                                <input type="radio"  name="gender" value="{{all_cust.Cust_gender}}"id="gender" />Other
+
+                            </div>
+                           
+                           
+                            <input type="submit" class="btnRegister" id="submit" value="Register" />
+                </form>
+            </div>
+        </div>
+        
+        <form class="tab-pane fade show" action="{% url 'registration' %}" method="POST" id="profile" role="tabpanel" name="frm" aria-labelledby="profile-tab" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <h3 class="register-heading">Register for Service Provider</h3>
+            <input type="hidden" name="role" value="serviceprovider"/>
+            <div class="row register-form">
+                <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name1" placeholder="First Name *"
+                                    value="" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="form-control" name="address1" placeholder="Your Address *" value="" /></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="contno1" placeholder="Contact Number *" value="" />
+                            </div>
+                             <div class="form-group">
+                                <input type="email" name="email1" class="form-control" placeholder="Your Email *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password1" placeholder="Password *"
+                                    value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confirmpassword1" placeholder="Confirm Password *"
+                                    value="" />
+                            </div>
+                        
+                    </div>
+                        <div class="col-md-6">
+                        
+                        
+                            <div class ="form-group">
+                            <select class="form-control" name="city1" placeholder="Your city">
+                                <option class="form-control">Select your City</option>
+                                <option>Ahmedabad</option>
+                                <option>Vadodara</option>
+                                <option>Anand</option>
+                            </select>
+                            </div>
+                            <div class ="form-group">
+                            <select class="form-control" name="state1" placeholder="Your State">
+                                <option class="form-control">Select your State</option>
+                                <option>Gujarat</option>
+                               
+                            </select>
+                            </div>
+                            <div class ="form-group">
+                            <select class="form-control" name="country1" placeholder="Your Country">
+                                <option class="form-control">Select your Country</option>
+                                <option>India</option>
+                               
+                            </select>
+                            </div>
+                            <div class ="form-group">
+                            <select name="service" class="form-control" placeholder="Select your Service">
+                                <option class="form-control">Select your Service</option>
+                                {% for service in services %}
+                                    <option value="{{service.id}}">{{ service.Service_name }}</option>
+                                {% endfor %}
+                            </select>
+                            </div>
+                            <div class ="form-group">
+                            
+
+                            </div>
+                            <div>
+                                <input type="radio"  name="gender1" value="Male" />Male 
+                                <input type="radio"  name="gender1" value="Female"/>Female
+                                <input type="radio"  name="gender1" value="Other" />Other
+                                <br>
+
+                            </div>
+
+
+                            <div class="form-group">
+                               <div class="name">Profile Image:</div>
+                                <input type="file" class="form-control" name="image" placeholder="Profile Image"
+                                    value="" id='id_image'/>
+                                    
+                            </div>
+                           
+                           
+                            <input type="submit" class="btnRegister" value="Register" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </section>
+
+     
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<script>
+    // (function validateForm() {
+    //     var isValid = true;
+    //     $('#home').each(function () {
+    //         debugger;
+    //         if ($(this).val() === '')
+    //             isValid = false;
+    //     });
+    //     return isValid;
+    // }())
+</script>
+</div>
+<!-- JavaScript files -->
+
+    <script src="{% static 'servicehub/js/jquery-1.12.4.min.js' %}"></script><!-- jquery-1.12.4.min js-->
+    <script src="{% static 'servicehub/js/bootstrap.min.js' %}"></script><!-- bootstrap.min js-->
+    <script src="{% static 'servicehub/js/slick.min.js' %}"></script><!-- slick js-->
+    <script src="{% static 'servicehub/js/bootstrap-select.min.js' %}"></script><!-- Bootstrap selectbox js-->
+    <script src="{% static 'servicehub/js/custom.js' %}"></script><!-- custom js--> 
+    <script type="text/javascript" src="{% static 'servicehub/js/jquery-1.6.1.min.js' %}"></script>
+    <script src="{% static 'servicehub/js/jquery.dd.js' %}"></script><!-- selectbox js-->
+    <script language="javascript" type="text/javascript">
+        function showvalue(arg) {
+            alert(arg);
+        }
+        $(document).ready(function() {
+        try {
+                oHandler = $(".mydds").msDropDown().data("dd");
+                $("#ver").html($.msDropDown.version);
+                } catch(e) {
+                    alert("Error: "+e.message);
+                }
+        })
+    </script>

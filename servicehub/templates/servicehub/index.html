@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content=""> 
+    <title>ServiceHub</title> 
+    <link rel="icon" href="{% static 'servicehub/images/favicon.ico' %}">
+    <link href="{% static 'servicehub/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/custom-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/slick-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/bootstrap-select.css' %}" rel="stylesheet">
+    <link href="{% static 'servicehub/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'servicehub/css/css3.css' %}" rel="stylesheet">
+	<link href="{% static 'servicehub/css/theme/theme-1.css' %}" rel="stylesheet" id="switch_style">
+</head> 
+<body>
+	<div id="wrapper" class="homePage">
+        <header id="header">
+        	<div class="container"> 
+            	<div class="row">
+                	<div class="col-lg-4 col-md-3 col-sm-2">
+                        <div class="col-6 col-xl-2">
+                        <h1 style="font-size: 50px"><a  class="text-black mb-0" style="color: white">Service<span class="text-primary">Hub</span> </a></h1>
+                        </div> 
+                    </div>
+                    <div class="col-lg-8 col-md-9 col-sm-10">
+                    	<div class="right-header clearfix">
+                            <nav class="navigation">
+                            	<div class="close-menu"><i class="fa fa-close" aria-hidden="true"></i></div>
+                                	<div class="navbar-collapse">
+                                   		<ul class="nav navbar-nav">
+                                        	<li class="active"><a href="{% url 'index' %}">Home</a></li>
+                                        	<li><a href="{% url 'our_service' %}">Our Service</a></li>
+                                        	<li><a href="{% url 'con' %}">Contact Us</a></li>
+                                        	<li><a href="{% url 'aboutus' %}">About Us</a></li>
+                                        	<li><a href="{% url 'login' %}">Feedback</a></li>
+                                       </ul>
+                                	</div>
+                                
+                            </nav>
+                        <div class="register-link">
+                            <ul>
+                                <li><i class="fa fa-user" ><a href="{% url 'login' %}" ></i> Login/Register</a></li>
+                            </ul>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+    	</header>
+        <section id="banner" class="banner-slider" class="section-block">
+			<div class="banner-img-slider">
+             	<div>
+					<div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/banner-img.png' %}" alt="" class="hide" />
+                    </div>
+				</div>
+                <div>
+					<div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/comming-soonBanner.png' %}" alt="" class="hide" />
+                    </div>
+				</div>
+				<div>
+					<div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/team-banner.jpg' %}" alt="" class="hide" />
+                    </div>
+				</div>
+			</div>
+			<div class="blue-overlay">
+                <div class="banner-text-wrapper">
+                <h1>Service Hub</h1>
+                </div>
+            </div>
+        </section>
+         <div id="content">
+            <section id="services" class="section-block">
+            	<div class="container">
+                	<div class="top-desc text-center">
+                        <h2>Our Services</h2>
+                        <p class="sub-heading">You’re in the right place!</p> 
+                    </div>
+                    <div class="service-slider">
+                        <div class="col-md-3 col-sm-6">
+                        	<a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img1.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Electrical</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img2.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Plumbing</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img4.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Painting</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img5.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Cleaning</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img6.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Appliances</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img7.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Carpentry</span>
+                            </a>
+                        </div>
+                       <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img11.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Vehicle Care</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <a href="gallery.html">
+                                <div class="img"><img src="{% static 'servicehub/images/service-img/service-img12.jpg' %}" alt="" />
+                                </div>
+                                <span class="name">Spa</span>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+            </section> 
+            <section id="how-works" class="section-block">
+            	<div class="container">
+                	<div class="top-desc">
+                        <h2>How it works</h2>
+                        <p class="sub-heading">You’re in the right place!</p>
+                    </div>
+                    <div class="row">
+                    	<div class="col-md-3 col-sm-6">
+                        	<div class="icon"><i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+                        	<div class="name">Browse Services</div>
+                            
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                        	<div class="icon"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                            </div>
+                        	<div class="name">Schedule Service</div>
+                            
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                        	<div class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i>
+                            </div>
+                        	<div class="name">Book Service</div>
+                            
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                        	<div class="icon"><i class="fa fa-gear" aria-hidden="true"></i>
+                            </div>
+                        	<div class="name">Resolves Issues</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <footer id="footer">
+        	<div class="top-footer">
+            	<div class="container">
+                	<div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <h3>Quick Links</h3>
+                            <div class="row">
+                            	<div class="col-xs-6">
+                                	<ul class="links">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about-us.html">About</a></li>
+                                        <li><a href="contact-us.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-md-4 col-sm-6">
+                            <h3>Our Services</h3>
+                            <div class="row">
+                            	<div class="col-xs-4">
+                                	<ul class="links">
+                                        <li><a href="#">Cleaning</a></li>
+                                        <li><a href="#">Pest Control</a></li>
+                                        <li><a href="#">Electrical</a></li>
+                                        <li><a href="#">Plumbing</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-6">
+                                	<ul class="links">
+                                        <li><a href="#">Appliance Services</a></li>
+                                        <li><a href="#">Vehicle Care</a></li>
+                                        <li><a href="#">Painting</a></li>
+                                        <li><a href="#">Carpentry</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h3>Follow us</h3>
+                            <ul class="list-inline social-links">
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+    </div>
+    <script src="{% static 'servicehub/js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'servicehub/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'servicehub/js/slick.min.js' %}"></script>
+    <script src="{% static 'servicehub/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'servicehub/js/custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'servicehub/js/jquery-1.6.1.min.js' %}"></script>
+    <script src="{% static 'servicehub/js/jquery.dd.js' %}"></script>
+    <script language="javascript" type="text/javascript">
+		function showvalue(arg) {
+			alert(arg);
+		}
+		$(document).ready(function() {
+		try {
+				oHandler = $(".mydds").msDropDown().data("dd");
+				$("#ver").html($.msDropDown.version);
+				} catch(e) {
+					alert("Error: "+e.message);
+				}
+		})
+	</script>
+</body>
+</html>
+

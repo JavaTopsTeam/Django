@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Mirrored from 115.160.244.10:8084/themeforest/easyliving/service-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Mar 2019 08:27:26 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="format-detection" content = "telephone=no">
+    <meta name="description" content="">
+    <meta name="author" content=""> 
+    
+    <!-- Title -->
+    <title>ServiceHub</title> 
+    
+    <!-- favicon icon -->
+    <link rel="icon" href="{% static '/servicehub/images/favicon.ico' %}">
+    
+    <!-- Icons -->
+    <link href="{% static '/servicehub/css/font-awesome.min.css' %}" rel="stylesheet"><!-- font-awesome.min css -->
+    <link href="{% static '/servicehub/css/custom-icons.css' %}" rel="stylesheet"><!-- custom-icons css -->
+    <!-- CSS Stylesheet -->
+    <link href="{% static '/servicehub/css/bootstrap.css' %}" rel="stylesheet"><!-- bootstrap.min css -->
+    <link href="{% static '/servicehub/css/slick.css' %}" rel="stylesheet"><!-- slick css -->
+    <link href="{% static '/servicehub/css/slick-theme.css' %}" rel="stylesheet"><!-- slick-theme css -->
+    <link href="{% static '/servicehub/css/bootstrap-select.css' %}" rel="stylesheet"><!-- bootstrap selectbox css -->
+    <link href="{% static '/servicehub/css/bootstrap-datetimepicker.css' %}" rel="stylesheet"><!-- datetimepicker css --> 
+    <link href="{% static '/servicehub/css/style.css' %}" rel="stylesheet"><!-- style css --> 
+    <link href="{% static '/servicehub/css/css3.css' %}" rel="stylesheet"><!-- css3 css -->
+    <link href="{% static '/servicehub/css/theme/theme-1.css' %}" rel="stylesheet" id="switch_style"><!-- style css --> 
+    <style type="text/css">
+span{
+    color: red;
+}
+</style>
+<script type="text/javascript">
+    function validation(){
+        var user =document.getElementById('uname').value;
+        
+        var mob =document.getElementById('umob').value;
+        var mail =document.getElementById('uemail').value;
+        var pin =document.getElementById('upin').value;
+        var add =document.getElementById('uadd').value;
+        
+
+        if (user == ""){
+            document.getElementById('fname').innerHTML="** PLEASE FILL THE USERNAME";
+            return false;
+            }
+        if((user.length < 2) || (user.length > 20)){
+              document.getElementById('fname').innerHTML="**USERNAME length must be between 2 and 20";
+            return false;   
+            }
+        if(!isNaN(user)){
+              document.getElementById('fname').innerHTML="**USERNAME is contains only characters";
+            return false;   
+            }
+       
+        if (mob == ""){
+            document.getElementById('fmob').innerHTML="** PLEASE FILL THE MOBILE NUMBER";
+            return false;
+        }
+        if (isNaN(mob)){
+            document.getElementById('fmob').innerHTML="** MUST FILL DIGIT ONLY";
+            return false;
+        }
+        if (mob.length!=10){
+            document.getElementById('fmob').innerHTML="** NUMBER MUST HAVE AT LEAST 10 DIGITS";
+            return false;
+        }
+        if (mail == ""){
+            document.getElementById('femail').innerHTML="** PLEASE FILL THE E-MAIL";
+            return false;
+        }
+        if (mail.indexOf('@') <= 0){
+            document.getElementById('femail').innerHTML="** @ INVALID POSITION";
+            return false;
+        }
+        if ((mail.charAt(mail.length-4) != '.') && (mail.charAt(mail.length-3) != '.')) {
+            document.getElementById('femail').innerHTML="** '.'INVALID POSITION";
+            return false;
+        }
+         if (pin.length!=6){
+            document.getElementById('fpin').innerHTML="** PINCODE MUST HAVE AT LEAST 6 DIGITS";
+            return false;
+        }
+
+        if (add == ""){
+            document.getElementById('fadd').innerHTML="** PLEASE FILL THE ADDRESS";
+            return false;
+        }
+
+
+    }
+</script>
+
+</head>  
+
+
+<body>
+    <div id="wrapper" class="innerPage">
+        <!-- Style Box Start -->
+        
+        <!-- Header Start -->
+        <body>
+    <div id="wrapper" class="innerPage">
+        
+        <!-- Header Start -->
+
+    <div id="wrapper" class="homePage">
+        
+        <!-- Header Start -->
+        <header id="header">
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-lg-4 col-md-3 col-sm-2">
+                        <div class="navbar-header">
+                            
+                             <div class="col-6 col-xl-2">
+<h1 style="font-size: 50px"><a  class="text-black mb-0" style="color: white">Service<span class="text-primary">Hub</span> </a></h1>
+</div> 
+                        </div> 
+                    </div>
+                    <div class="col-lg-8 col-md-9 col-sm-10">
+                        <div class="right-header clearfix">
+                            <nav class="navigation">
+                                <div class="close-menu"><i class="fa fa-close" aria-hidden="true"></i></div>
+                                <div class="navbar-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li ><a href="{% url 'index' %}">Home</a></li>
+                                        <li><a href="{% url 'view_profile' %}">Profile</a></li>
+                                        <li class="active"><a href="{% url 'servicelist' %}">Book Service</a></li>
+                                        <li><a href="{% url 'feedbacks' %}">Feedback</a></li>
+                                        <li><a href="contact-us.html">Contact Us</a></li> 
+                                        <li><a href="contact-us.html">About Us</a></li> 
+
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="register-link">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>        <!-- Register Section -->
+        <section id="banner" class="banner-slider">
+            <div class="banner-img-slider">
+                <div>
+                    <div class="banner-thumb"><img src="{% static '/servicehub/images/banner-img/service-banner.jpg" alt="" class="hide" /></div>
+                </div>
+            </div>
+            <div class="blue-overlay"></div>
+            <div class="banner-text-wrapper">
+                <div class="container">
+                    <div class="banner-text">
+                        <div class="row">
+                            
+                                
+            
+                <h1>Service Hub</h1>
+                                  </div>
+                </div>
+            </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Start -->
+        <div id="content">
+        	<!-- Service Detail -->
+            <section class="service-detail-wrapper">
+            	<div class="container">
+                	<div class="top-desc text-center">
+                        <h2>Personal Detail</h2>
+                    </div>
+                    <div class="row">
+                    	<div class="col-md-9 col-md-offset-3">
+                        	<form method="POST" action="{% url 'finalbooking'  %}" onclick="return validation()">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{service_id}}" name="service_id">
+                                <input type="hidden" name="appdate" value="{{orderdate}}">
+                                <input type="hidden" name="apptime" value="{{ordertime}}">
+                                <input type="hidden" name="subcat" value="{{subname}}">
+                            	 <div class="col-sm-8">
+                                    <div class="form-group">
+                                		<input type="text" class="form-control" placeholder="Your Name" name="username" id="uname"/>
+                                        <td><span id="fname"></span></td>
+                                    </div>
+                                   </div>  
+                                    
+                                    <div class="col-sm-8">
+                                    	<div class="form-group">
+                                        	<input type="text" class="form-control" placeholder="Mobile Number" name="mobile" id="umob"/>
+                                            <td><span id="fmob"></span></td>
+                                        </div>
+                                   </div>
+                               
+                               
+                                	<div class="col-sm-8">
+                                    	<div class="form-group">
+                                        	<input type="email" class="form-control" placeholder="Email" name="email" id="uemail"/>
+                                            <td><span id="femail"></span></td>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    <div class="col-sm-8">
+                                    	<div class="form-group">
+                                        	<input type="text" class="form-control" placeholder="Pin Code" name="pincode" id="upin"/>
+                                            <td><span id="fpin"></span></td>
+                                        </div>
+                                    </div>
+                                
+                                
+                                	<div class="col-sm-8">
+                                    	<div class="form-group">
+                                        	<textarea class="form-control" placeholder="Address" name="address" id="uadd"></textarea>
+                                            <td><span id="fadd"></span></td>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group text-center">
+                                	<div class="group-btn">
+                                    	<a href="{% url 'service2' %}" class="btn btn-info">Back</a>
+                                        <input type="submit" class="btn btn-info" value="Book">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+       
+        <!-- Footer Start -->
+       <footer id="footer">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <h3>Quick Links</h3>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <ul class="links">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about-us.html">About</a></li>
+                                        
+                                        <li><a href="contact-us.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div> 
+                        <div class="col-md-4 col-sm-6">
+                            <h3>Our Services</h3>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">Cleaning</a></li>
+                                        <li><a href="#">Pest Control</a></li>
+                                        <li><a href="#">Electrical</a></li>
+                                        <li><a href="#">Plumbing</a></li>
+                                       
+                                    </ul>
+                                </div>
+                                <div class="col-xs-6">
+                                    <ul class="links">
+                                        
+                                         <li><a href="#">Appliance Services</a></li>
+                                        <li><a href="#">Vehicle Care</a></li>
+                                        <li><a href="#">Painting</a></li>
+
+                                        <li><a href="#">Carpentry</a></li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h3>Follow us</h3>
+                            
+                            
+                            <ul class="list-inline social-links">
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i aria-hidden="true" class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </footer> 
+    </div>
+ <!-- JavaScript files -->
+    <script src="{% static '/servicehub/js/jquery-1.12.4.min.js' %}"></script><!-- jquery-1.12.4.min js-->
+    <script src="{% static '/servicehub/js/bootstrap.min.js' %}"></script><!-- bootstrap.min js-->
+    <script src="{% static '/servicehub/js/slick.min.js' %}"></script><!-- slick js-->
+    <script src="{% static '/servicehub/js/bootstrap-select.min.js' %}"></script><!-- Bootstrap selectbox js-->
+    <script src="{% static '/servicehub/js/waypoints.min.js' %}"></script> 
+	<script src="{% static '/servicehub/js/jquery.counterup.min.js' %}"></script><!-- counter js -->
+    <script src="{% static '/servicehub/js/custom.js' %}"></script><!-- custom js--> 
+</body>
+
+<!-- Mirrored from 115.160.244.10:8084/themeforest/easyliving/service-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Mar 2019 08:27:26 GMT -->
+</html>
