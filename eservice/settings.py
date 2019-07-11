@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'eservice.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'payal',
+        'NAME': 'service',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
